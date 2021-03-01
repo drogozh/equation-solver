@@ -57,14 +57,14 @@ public class Main {
     }
 
     private static void standard() {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line;
         try {
-            while ((line = br.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 System.out.println(solveQuadraticEquation(line));
             }
         } catch (Exception ex) {
-            System.out.println(ex);
+            throw new RuntimeException(ex);
         }
     }
 
