@@ -22,6 +22,17 @@ public class QudraticEquationTest {
     }
 
     @Test
+    void negativeDiscriminant() {
+        Equation equation = new QuadraticEquation(new Coefficient[]{
+                new CoefficientDouble(10d),
+                new CoefficientDouble(7d),
+                new CoefficientDouble(20d),
+        });
+        Coefficient[] roots = equation.solve();
+        assertEquals(0,roots.length);
+    }
+
+    @Test
     void zeroQuadraticCoefficient() {
         Equation equation = new QuadraticEquation(new Coefficient[]{
                 new CoefficientDouble(10d),
@@ -55,7 +66,7 @@ public class QudraticEquationTest {
     }
 
     @Test
-    void zeroLinerCoefficientNoRoots() {
+    void zeroLinearCoefficientNoRoots() {
         Equation equation = new QuadraticEquation(new Coefficient[]{
                 new CoefficientDouble(10d),
                 new CoefficientDouble(0d),
@@ -66,7 +77,7 @@ public class QudraticEquationTest {
     }
 
     @Test
-    void zeroLinerCoefficient() {
+    void zeroLinearCoefficientWithRoots() {
         Equation equation = new QuadraticEquation(new Coefficient[]{
                 new CoefficientDouble(-10d),
                 new CoefficientDouble(0d),
