@@ -73,7 +73,7 @@ public class Main {
             Coefficient[] roots = equation.solve();
             return formatter.format(roots);
         } catch (EquationDefinitionException ex) {
-            return "Error: " + ex.getMessage();
+            return formatter.formatError(ex.getMessage());
         }
     }
 }

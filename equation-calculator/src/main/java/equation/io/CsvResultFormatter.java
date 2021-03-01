@@ -3,16 +3,20 @@ package equation.io;
 import equation.calculator.Coefficient;
 
 public class CsvResultFormatter implements EquationResultFormatter {
+    private final String SEPARATOR = ",";
+
     public String format(Coefficient[] roots) {
-        if(roots.length < 1) return "No roots";
+        if(roots.length < 1) return "No Roots";
         StringBuilder result = new StringBuilder();
-        char separator = ',';
+        result.append("Roots");
         for(Coefficient root: roots) {
-            if(result.length() > 0) {
-                result.append(separator);
-            }
+            result.append(SEPARATOR);
             result.append(root.toString());
         }
         return result.toString();
+    }
+
+    public String formatError(String errorMessage) {
+        return "Error," + errorMessage;
     }
 }

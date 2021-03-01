@@ -46,16 +46,20 @@ example: for ax^2 + bx + c = 0 enter a,b,c
 Enter 'q' to exit
 
 coefficients: 1,2,-20
-3.58257569495584,-5.58257569495584
+Roots,3.58257569495584,-5.58257569495584
+```
+```
+coefficients: 1,2,3
+No Roots
 ```
 ```
 coefficients: a,b,c
-Error: Invalid coefficient 'a'
+Error,Invalid coefficient 'a'
 ```
 Use '-s' option to read standard input
 ```
 echo 1,7,10 | solve -s
--2.0,-5.0
+Roots,-2.0,-5.0
 ```
 
 Application can be used to batch-process a file. Invoke 'solve' command with option '-s' and pass standard output of another command. Input file should contain one line for every set of equation coefficients.
