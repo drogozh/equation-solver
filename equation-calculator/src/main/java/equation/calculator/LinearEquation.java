@@ -4,8 +4,8 @@ public class LinearEquation extends Equation {
     protected final int CONSTANT = 0;
     protected final int LINEAR = 1;
 
-    public LinearEquation(Coefficient[] terms) {
-        super(terms);
+    public LinearEquation(Coefficient[] coefficients) {
+        super(coefficients);
     }
 
     @Override

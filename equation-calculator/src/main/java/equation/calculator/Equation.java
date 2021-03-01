@@ -16,12 +16,4 @@ public abstract class Equation {
     public Equation(Coefficient[] coefficients){
         this.coefficients = coefficients;
     }
-
-    public Coefficient[] getCoefficients() {
-        Coefficient[] copy = new Coefficient[coefficients.length];
-        for(int index=0; index < coefficients.length; index++) {
-            copy[index] = coefficients[index];
-        }
-        return copy;
-    }
 }
