@@ -29,7 +29,8 @@ public class Main {
     private static void instructions(){
         StringBuilder builder = new StringBuilder();
         builder.append("Solves quadratic and linear equations.\n\n");
-        builder.append("Options:\n");
+        builder.append("Usage: solve [option]\n\n");
+        builder.append("[option]:\n");
         builder.append(" " + INTERACTIVE + "\t\t interactive mode, enter 'q' to exit\n");
         builder.append(" " + STDIO + "\t\t process standard input, press Ctrl+C to exit\n");
         builder.append(" " + HELP + "\t\t show this help");
@@ -42,6 +43,7 @@ public class Main {
         System.out.println("Solves quadratic and linear equations.\n");
         System.out.println("Enter comma separated equation coefficients");
         System.out.println("example: for ax^2 + bx + c = 0 enter a,b,c");
+        System.out.println("Enter 'q' to exit\n");
         System.out.print("coefficients: ");
         String line;
         while(!(line = scanner.nextLine()).equals("q") ) {
