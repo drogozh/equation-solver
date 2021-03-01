@@ -52,7 +52,7 @@ coefficients: 1,2,-20
 coefficients: a,b,c
 Error: Invalid coefficient 'a'
 ```
-User '-s' option to read standard input
+Use '-s' option to read standard input
 ```
 echo 1,7,10 | solve -s
 -2.0,-5.0
