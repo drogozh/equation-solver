@@ -11,4 +11,6 @@ public abstract class Equation {
     public Equation(Coefficient[] coefficients){
         this.coefficients = coefficients;
     }
+
+    protected Coefficient[] noRoots = new Coefficient[]{};
 }

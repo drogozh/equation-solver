@@ -3,16 +3,19 @@ package equation.calculator;
 public class QuadraticEquation extends LinearEquation {
     protected final int QUADRATIC = 2;
 
+    protected Coefficient quadratic;
+
     public QuadraticEquation(Coefficient[] coefficients) {
         super(coefficients);
+        quadratic = coefficients[QUADRATIC];
     }
 
     @Override
     public Coefficient[] solve() {
-        if(coefficients[QUADRATIC].isZero()) {
+        if(quadratic.isZero()) {
             return super.solve();
         }
-        if(coefficients[LINEAR].isZero()) {
+        if(linear.isZero()) {
             return calculateNonDiscriminantRoots();
         }
         Coefficient discriminant = calculateDiscriminant();
@@ -23,26 +26,27 @@ public class QuadraticEquation extends LinearEquation {
     }
 
     private Coefficient calculateDiscriminant() {
-        return coefficients[LINEAR].multiply(coefficients[LINEAR])
-                .subtract(coefficients[QUADRATIC].multiply(coefficients[CONSTANT]).multiply(4));
+        return linear.multiply(linear).subtract(
+                quadratic.multiply(constant).multiply(4)
+        );
     }
 
     private Coefficient[] calculateRealRoots(Coefficient discriminant) {
         if(discriminant.isZero()) {
             return new Coefficient[] {
-                    coefficients[LINEAR].negate().add(discriminant.sqrt()).divide(coefficients[QUADRATIC]).divide(2)
+                    linear.negate().add(discriminant.sqrt()).divide(quadratic).divide(2)
             };
         }
         return new Coefficient[] {
-                coefficients[LINEAR].negate().add(discriminant.sqrt()).divide(coefficients[QUADRATIC]).divide(2),
-                coefficients[LINEAR].negate().subtract(discriminant.sqrt()).divide(coefficients[QUADRATIC]).divide(2)
+                linear.negate().add(discriminant.sqrt()).divide(quadratic).divide(2),
+                linear.negate().subtract(discriminant.sqrt()).divide(quadratic).divide(2)
         };
     }
 
     private Coefficient[] calculateNonDiscriminantRoots(){
-        Coefficient intermediate = coefficients[CONSTANT].negate().divide(coefficients[QUADRATIC]);
+        Coefficient intermediate = constant.negate().divide(quadratic);
         if(intermediate.isNegative()) {
-            return new Coefficient[]{};
+            return noRoots;
         }
         return new Coefficient[] {
                 intermediate.sqrt(),
@@ -51,6 +55,6 @@ public class QuadraticEquation extends LinearEquation {
     }
 
     private Coefficient[] calculateComplexRoots(Coefficient discriminant) {
-        return new Coefficient[]{};
+        return noRoots;
     }
 }

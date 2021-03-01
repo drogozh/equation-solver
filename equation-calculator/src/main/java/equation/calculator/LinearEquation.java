@@ -4,21 +4,24 @@ public class LinearEquation extends Equation {
     protected final int CONSTANT = 0;
     protected final int LINEAR = 1;
 
+    protected Coefficient linear;
+    protected Coefficient constant;
+
     public LinearEquation(Coefficient[] coefficients) {
         super(coefficients);
+        linear = coefficients[LINEAR];
+        constant = coefficients[CONSTANT];
     }
 
     @Override
     public Coefficient[] solve() {
-        if(coefficients[LINEAR].isZero()){
-            if(coefficients[CONSTANT].isZero()) {
-                return new Coefficient[] { coefficients[CONSTANT] };
+        if(linear.isZero()) {
+            if(constant.isZero()) {
+                return new Coefficient[] { constant };
             } else {
-                return new Coefficient[]{};
+                return noRoots;
             }
         }
-        return new Coefficient[] {
-                coefficients[CONSTANT].negate().divide(coefficients[LINEAR])
-        };
+        return new Coefficient[] { constant.negate().divide(linear) };
     }
 }
