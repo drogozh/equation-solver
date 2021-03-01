@@ -3,9 +3,9 @@ package equation.calculator;
 public class CoefficientDouble implements Coefficient {
     private final double TOLERANCE = 0.000000001d;
 
-    private double value;
+    private Double value;
 
-    public CoefficientDouble(Double value) {
+    public CoefficientDouble(double value) {
         this.value = value;
     }
 
@@ -71,13 +71,19 @@ public class CoefficientDouble implements Coefficient {
 
     @Override
     public String toString() {
-        return isZero() ? "0" : ((Double)this.value).toString();
+        return isZero() ? "0" : this.value.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
     }
 
     @Override
     public boolean equals(Object obj) {
         if(!(obj instanceof CoefficientDouble)) return false;
         CoefficientDouble other = (CoefficientDouble)obj;
+        if(this.value.equals(other.value)) return true;
         return Math.abs(this.value - other.value) < TOLERANCE;
     }
 }
