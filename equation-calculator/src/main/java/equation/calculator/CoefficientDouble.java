@@ -10,18 +10,18 @@ public class CoefficientDouble implements Coefficient {
     }
 
     @Override
-    public Coefficient add(Coefficient operand) {
-        return new CoefficientDouble(this.value + (double)operand.getValue());
+    public Coefficient add(Coefficient augend) {
+        return new CoefficientDouble(this.value + (double)augend.getValue());
     }
 
     @Override
-    public Coefficient subtract(Coefficient operand) {
-        return new CoefficientDouble(this.value - (double)operand.getValue());
+    public Coefficient subtract(Coefficient subtrahend) {
+        return new CoefficientDouble(this.value - (double)subtrahend.getValue());
     }
 
     @Override
-    public Coefficient multiply(Coefficient operand) {
-        return new CoefficientDouble(this.value * (double)operand.getValue());
+    public Coefficient multiply(Coefficient multiplicand) {
+        return new CoefficientDouble(this.value * (double)multiplicand.getValue());
     }
 
     @Override

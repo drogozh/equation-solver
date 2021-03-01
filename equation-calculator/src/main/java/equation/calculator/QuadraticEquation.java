@@ -18,10 +18,9 @@ public class QuadraticEquation extends LinearEquation {
         if(linear.isZero()) {
             return calculateNonDiscriminantRoots();
         }
+
         Coefficient discriminant = calculateDiscriminant();
-        if(discriminant.isNegative()) {
-            return calculateComplexRoots(discriminant);
-        }
+        if(discriminant.isNegative()) return noRoots;
         return calculateRealRoots(discriminant);
     }
 
@@ -43,7 +42,7 @@ public class QuadraticEquation extends LinearEquation {
         };
     }
 
-    private Coefficient[] calculateNonDiscriminantRoots(){
+    private Coefficient[] calculateNonDiscriminantRoots() {
         Coefficient intermediate = constant.negate().divide(quadratic);
         if(intermediate.isNegative()) {
             return noRoots;
@@ -52,9 +51,5 @@ public class QuadraticEquation extends LinearEquation {
                 intermediate.sqrt(),
                 intermediate.sqrt().negate()
         };
-    }
-
-    private Coefficient[] calculateComplexRoots(Coefficient discriminant) {
-        return noRoots;
     }
 }
