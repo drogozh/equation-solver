@@ -58,7 +58,7 @@ echo 1,7,10 | solve -s
 -2.0,-5.0
 ```
 
-Application can be used to batch-process a file. Invoke 'solve' command with option '-s' and pass standard output of another command. Input file should contain one line for every set of input coefficients.
+Application can be used to batch-process a file. Invoke 'solve' command with option '-s' and pass standard output of another command. Input file should contain one line for every set of equation coefficients.
 ```
 type input.txt | solve -s > solutions.txt
 ``` 
