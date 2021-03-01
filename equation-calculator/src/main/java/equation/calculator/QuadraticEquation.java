@@ -12,11 +12,9 @@ public class QuadraticEquation extends LinearEquation {
         if(coefficients[QUADRATIC].isZero()) {
             return super.solve();
         }
-
         if(coefficients[LINEAR].isZero()) {
             return calculateNonDiscriminantRoots();
         }
-
         Coefficient discriminant = calculateDiscriminant();
         if(discriminant.isNegative()) {
             return calculateComplexRoots(discriminant);
