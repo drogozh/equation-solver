@@ -8,8 +8,8 @@ public class EquationFactory {
 
     /**
      * Constructs instances of Equation interface
-     * @param coefficients Higher order coefficients occupy lower position index, i.e. left to right;
-     *                     for example: ax^2 + bx + c = 0 coefficient packing is [a,b,c]
+     * @param coefficients Coefficient's power matches its position in the array;
+     *                     for example: ax^2 + bx^1 + cx^0 = 0 coefficient packing is [c,b,a]
      * @return Equation
      * @throws EquationDefinitionException
      */
