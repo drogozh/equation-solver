@@ -1,8 +1,6 @@
 package equation.cli;
 
-import equation.exceptions.EquationDefinitionException;
 import equation.io.*;
-import equation.calculator.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Scanner;
@@ -11,6 +9,8 @@ public class Main {
     private static final String HELP = "-h";
     private static final String INTERACTIVE = "-i";
     private static final String STDIO = "-s";
+
+    private static Solver<String,String> solver = new CsvSolver();
 
     public static void main(String[] args) {
         if(args.length == 0 ) {
@@ -50,7 +50,7 @@ public class Main {
         String line;
         Scanner scanner = new Scanner(System.in);
         while(!(line = scanner.nextLine()).equals("q") ) {
-            String result = solveQuadraticEquation(line);
+            String result = solver.solve(line);
             System.out.println(result);
             System.out.print("coefficients: ");
         }
@@ -61,22 +61,10 @@ public class Main {
         String line;
         try {
             while ((line = reader.readLine()) != null) {
-                System.out.println(solveQuadraticEquation(line));
+                System.out.println(solver.solve(line));
             }
         } catch (Exception ex) {
             throw new RuntimeException(ex);
-        }
-    }
-
-    private static String solveQuadraticEquation(String coefficients) {
-        EquationStringParser parser = new CsvEquationParser();
-        EquationResultFormatter formatter = new CsvResultFormatter();
-        try {
-            Equation equation = parser.parse(coefficients);
-            Coefficient[] roots = equation.solve();
-            return formatter.format(roots);
-        } catch (EquationDefinitionException ex) {
-            return formatter.formatError(ex.getMessage());
         }
     }
 }
