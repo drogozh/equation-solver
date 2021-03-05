@@ -2,7 +2,7 @@ package equation.io;
 
 import equation.calculator.Coefficient;
 
-public class CsvResultFormatter implements EquationResultFormatter {
+public class CsvResultFormatter implements EquationResultFormatter<String> {
     private final String SEPARATOR = ",";
 
     public String format(Coefficient[] roots) {
