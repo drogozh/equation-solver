@@ -60,6 +60,12 @@ public class CoefficientDouble implements Coefficient {
     }
 
     @Override
+    public boolean isEqual(Coefficient other) {
+        if(!(other instanceof CoefficientDouble)) return false;
+        return Math.abs(this.value - ((CoefficientDouble)other).value) < TOLERANCE;
+    }
+
+    @Override
     public Object getValue() {
         return this.value;
     }
@@ -76,9 +82,8 @@ public class CoefficientDouble implements Coefficient {
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof CoefficientDouble)) return false;
-        CoefficientDouble other = (CoefficientDouble)obj;
-        if(this.value.equals(other.value)) return true;
-        return Math.abs(this.value - other.value) < TOLERANCE;
+        return value.equals(obj);
     }
+
+
 }

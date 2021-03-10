@@ -11,5 +11,6 @@ public interface Coefficient {
     Coefficient sqrt();
     boolean isZero();
     boolean isNegative();
+    boolean isEqual(Coefficient other);
     Object getValue();
 }

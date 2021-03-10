@@ -14,7 +14,7 @@ public class LinearEquationTest {
         Equation equation = new LinearEquation(coefficients);
         Coefficient[] roots = equation.solve();
         assertEquals(1,roots.length);
-        assertTrue(roots[0].equals(new CoefficientDouble(0d)));
+        assertTrue(roots[0].isEqual(new CoefficientDouble(0d)));
     }
 
     @Test
