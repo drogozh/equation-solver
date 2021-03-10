@@ -1,8 +1,8 @@
 package equation.calculator;
 
 public class LinearEquation extends Equation {
-    protected final int CONSTANT = 0;
-    protected final int LINEAR = 1;
+    protected final static int CONSTANT = 0;
+    protected final static int LINEAR = 1;
 
     protected Coefficient linear;
     protected Coefficient constant;

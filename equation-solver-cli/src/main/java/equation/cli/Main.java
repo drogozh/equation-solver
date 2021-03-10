@@ -10,7 +10,7 @@ public class Main {
     private static final String INTERACTIVE = "-i";
     private static final String STDIO = "-s";
 
-    private static Solver<String,String> solver = new CsvSolver();
+    private static final Solver<String,String> solver = new CsvSolver();
 
     public static void main(String[] args) {
         if(args.length == 0 ) {

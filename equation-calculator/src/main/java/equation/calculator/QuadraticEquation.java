@@ -1,7 +1,7 @@
 package equation.calculator;
 
 public class QuadraticEquation extends LinearEquation {
-    protected final int QUADRATIC = 2;
+    protected final static int QUADRATIC = 2;
 
     protected Coefficient quadratic;
 

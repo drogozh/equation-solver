@@ -14,7 +14,7 @@ public abstract class Equation {
 
     /**
      * Solves equation, returning results as individual coefficients
-     * @return
+     * @return Roots of the equation, represented by coefficients
      */
     public abstract Coefficient[] solve();
 }

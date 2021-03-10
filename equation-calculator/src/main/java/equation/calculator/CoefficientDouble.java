@@ -1,9 +1,9 @@
 package equation.calculator;
 
 public class CoefficientDouble implements Coefficient {
-    private final double TOLERANCE = 0.000000001d;
+    private static final double TOLERANCE = 0.000000001d;
 
-    private Double value;
+    private final Double value;
 
     public CoefficientDouble(double value) {
         this.value = value;
@@ -57,11 +57,6 @@ public class CoefficientDouble implements Coefficient {
     @Override
     public boolean isNegative() {
         return this.value < 0;
-    }
-
-    @Override
-    public Coefficient zero() {
-        return new CoefficientDouble(0d);
     }
 
     @Override

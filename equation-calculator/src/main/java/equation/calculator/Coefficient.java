@@ -9,7 +9,6 @@ public interface Coefficient {
     Coefficient divide(int divisor);
     Coefficient negate();
     Coefficient sqrt();
-    Coefficient zero();
     boolean isZero();
     boolean isNegative();
     Object getValue();
