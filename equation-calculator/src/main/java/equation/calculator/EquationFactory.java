@@ -3,15 +3,15 @@ package equation.calculator;
 import equation.exceptions.EquationDefinitionException;
 
 public class EquationFactory {
-    private final int LINEAR_EQUATION = 2;
-    private final int QUADRATIC_EQUATION = 3;
+    private final static int LINEAR_EQUATION = 2;
+    private final static int QUADRATIC_EQUATION = 3;
 
     /**
      * Constructs instances of Equation interface
      * @param coefficients Coefficient's power matches its position in the array;
      *                     for example: ax^2 + bx^1 + cx^0 = 0 coefficient packing is [c,b,a]
      * @return Equation
-     * @throws EquationDefinitionException
+     * @throws EquationDefinitionException frown for any equation issues
      */
     public Equation makeEquation(Coefficient[] coefficients) throws EquationDefinitionException {
         switch (coefficients.length) {

@@ -10,7 +10,7 @@ public class CoefficientDoubleTest {
         Coefficient smaller = new CoefficientDouble(1d);
         Coefficient bigger = new CoefficientDouble(2d);
         Coefficient result = smaller.add(bigger);
-        assertTrue(result.equals(new CoefficientDouble(3d)));
+        assertTrue(result.isEqual(new CoefficientDouble(3d)));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class CoefficientDoubleTest {
         Coefficient bigger = new CoefficientDouble(generateValue(0.5,10));
         Coefficient result = smaller.subtract(bigger);
         Coefficient reference = new CoefficientDouble(generateValue(0.2,10)).negate();
-        assertTrue(result.equals(reference));
+        assertTrue(result.isEqual(reference));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class CoefficientDoubleTest {
         Coefficient bigger = new CoefficientDouble(generateValue(0.5,10));
         Coefficient result = smaller.multiply(bigger);
         Coefficient reference = new CoefficientDouble(generateValue(1.5,10));
-        assertTrue(result.equals(reference));
+        assertTrue(result.isEqual(reference));
     }
 
     @Test
@@ -37,8 +37,8 @@ public class CoefficientDoubleTest {
         Coefficient bigger = new CoefficientDouble(generateValue(0.4,9));
         Coefficient reference = new CoefficientDouble(6d);
         Coefficient result = bigger.divide(smaller);
-        assertTrue(result.equals(reference));
-        assertTrue(result.multiply(smaller).equals(bigger));
+        assertTrue(result.isEqual(reference));
+        assertTrue(result.multiply(smaller).isEqual(bigger));
     }
 
     @Test
@@ -48,15 +48,15 @@ public class CoefficientDoubleTest {
         Coefficient left = new CoefficientDouble(generateValue(0.31,9));
         Coefficient right = new CoefficientDouble(generateValue(0.31,9));
         assertTrue(left.subtract(right).isZero());
-        assertTrue(left.subtract(right).equals(zero));
+        assertTrue(left.subtract(right).isEqual(zero));
     }
 
     @Test
-    void equals() {
+    void isEqual() {
         double leftValue = generateValue(0.1d,9);
         Coefficient left = new CoefficientDouble(leftValue);
         Coefficient right = new CoefficientDouble(0.1d*9);
-        assertTrue(left.equals(right));
+        assertTrue(left.isEqual(right));
     }
 
     private double generateValue(double increment, int cycles) {

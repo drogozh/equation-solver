@@ -17,8 +17,8 @@ public class QudraticEquationTest {
         Coefficient rootA = new CoefficientDouble(-2d);
         Coefficient rootB = new CoefficientDouble(-5d);
 
-        assertTrue(rootA.equals(roots[0]) || rootA.equals(roots[1]));
-        assertTrue(rootB.equals(roots[0]) || rootB.equals(roots[1]));
+        assertTrue(rootA.isEqual(roots[0]) || rootA.isEqual(roots[1]));
+        assertTrue(rootB.isEqual(roots[0]) || rootB.isEqual(roots[1]));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class QudraticEquationTest {
         Coefficient rootA = new CoefficientDouble(-10d)
                 .divide(new CoefficientDouble(7d));
 
-        assertTrue(rootA.equals(roots[0]));
+        assertTrue(rootA.isEqual(roots[0]));
     }
 
     @Test
@@ -61,8 +61,8 @@ public class QudraticEquationTest {
         Coefficient rootA = new CoefficientDouble(-7d);
         Coefficient rootB = new CoefficientDouble(0d);
 
-        assertTrue(rootA.equals(roots[0]) || rootA.equals(roots[1]));
-        assertTrue(rootB.equals(roots[0]) || rootB.equals(roots[1]));
+        assertTrue(rootA.isEqual(roots[0]) || rootA.isEqual(roots[1]));
+        assertTrue(rootB.isEqual(roots[0]) || rootB.isEqual(roots[1]));
     }
 
     @Test
@@ -88,7 +88,7 @@ public class QudraticEquationTest {
         Coefficient reference = new CoefficientDouble(10d).sqrt();
         Coefficient negativeReference = new CoefficientDouble(10d).sqrt();
         assertEquals(2,roots.length);
-        assertTrue(reference.equals(roots[0]) || reference.equals(roots[1]));
-        assertTrue(negativeReference.equals(roots[0]) || negativeReference.equals(roots[1]));
+        assertTrue(reference.isEqual(roots[0]) || reference.isEqual(roots[1]));
+        assertTrue(negativeReference.isEqual(roots[0]) || negativeReference.isEqual(roots[1]));
     }
 }

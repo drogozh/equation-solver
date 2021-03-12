@@ -2,8 +2,8 @@ package equation.io;
 
 import equation.calculator.Coefficient;
 
-public class CsvResultFormatter implements EquationResultFormatter {
-    private final String SEPARATOR = ",";
+public class CsvResultFormatter implements EquationResultFormatter<String> {
+    private static final String SEPARATOR = ",";
 
     public String format(Coefficient[] roots) {
         if(roots.length < 1) return "No Roots";

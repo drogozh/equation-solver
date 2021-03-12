@@ -1,8 +1,8 @@
 package equation.calculator;
 
 public abstract class Equation {
+    protected static Coefficient[] noRoots = new Coefficient[]{};
     protected Coefficient[] coefficients;
-    public abstract Coefficient[] solve();
 
     /**
      * @param coefficients Coefficient's power matches its position in the array;
@@ -12,5 +12,9 @@ public abstract class Equation {
         this.coefficients = coefficients;
     }
 
-    protected Coefficient[] noRoots = new Coefficient[]{};
+    /**
+     * Solves equation, returning results as individual coefficients
+     * @return Roots of the equation, represented by coefficients
+     */
+    public abstract Coefficient[] solve();
 }

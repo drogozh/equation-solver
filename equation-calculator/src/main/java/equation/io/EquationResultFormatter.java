@@ -2,7 +2,7 @@ package equation.io;
 
 import equation.calculator.Coefficient;
 
-public interface EquationResultFormatter {
-    String format(Coefficient[] roots);
-    String formatError(String error);
+public interface EquationResultFormatter<T> {
+    T format(Coefficient[] roots);
+    T formatError(String error);
 }

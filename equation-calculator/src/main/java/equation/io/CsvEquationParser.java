@@ -3,7 +3,7 @@ package equation.io;
 import equation.calculator.*;
 import equation.exceptions.EquationDefinitionException;
 
-public class CsvEquationParser implements EquationStringParser {
+public class CsvEquationParser implements EquationParser<String> {
     @Override
     public Equation parse(String equationString) throws EquationDefinitionException {
         Coefficient[] coefficients = parseTerms(extractTerms(equationString));
